@@ -7,7 +7,8 @@ module.exports = (sequelize, DataTypes) => {
       programmingCode: DataTypes.STRING,
       loss: DataTypes.STRING,
       author: DataTypes.STRING,
-      level: DataTypes.STRING
+      level: DataTypes.STRING,
+      place: DataTypes.STRING
     },
     {}
   );

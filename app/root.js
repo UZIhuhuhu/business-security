@@ -8,6 +8,7 @@ import { Image } from 'react-native';
 import BackButton from './components/BackButton';
 import Home from './pages/Home';
 import History from './pages/History';
+import DetailPage from './pages/DetailPage';
 import HomeActiveIcon from './assets/home-active.png';
 import HomeInActiveIcon from './assets/home-inactive.png';
 import HistoryActiveIcon from './assets/user-active.png';
@@ -46,6 +47,12 @@ const HistoryStack = createStackNavigator(
       screen: History,
       navigationOptions: {
         title: '上报历史'
+      }
+    },
+    DetailPage: {
+      screen: DetailPage,
+      navigationOptions: {
+        title: '上报详情'
       }
     }
   },
