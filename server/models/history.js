@@ -3,7 +3,6 @@ module.exports = (sequelize, DataTypes) => {
     'History',
     {
       text: DataTypes.STRING,
-      dataModel: DataTypes.STRING,
       programmingCode: DataTypes.STRING,
       loss: DataTypes.STRING,
       author: DataTypes.STRING,

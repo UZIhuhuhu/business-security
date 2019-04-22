@@ -8,11 +8,11 @@ export const getDetail = id => fetch(`${REQUEST_URL}/history${id}`);
 
 export const createCheck = (
   text,
-  dataModel,
   programmingCode,
   loss,
   author,
-  level
+  level,
+  place
 ) =>
   fetch(`${REQUEST_URL}/create`, {
     method: 'POST',
@@ -21,10 +21,10 @@ export const createCheck = (
     },
     body: qs.stringify({
       text,
-      dataModel,
+      level,
       programmingCode,
       loss,
       author,
-      level
+      place
     })
   });
