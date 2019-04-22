@@ -8,7 +8,8 @@ import {
   Picker,
   ScrollView,
   Button,
-  KeyboardAvoidingView
+  KeyboardAvoidingView,
+  Alert
 } from 'react-native';
 import { createCheck } from '../api/index';
 
@@ -43,11 +44,21 @@ export default class Home extends Component {
     createCheck(text, programmingCode, loss, author, level, place)
       .then(res => res.json())
       .then(res => {
-        console.log(res);
+        if (res.check) {
+          Alert.alert('上报成功');
+          this.setState({
+            place: '',
+            loss: '',
+            text: '',
+            author: ''
+          });
+        }
       });
   };
 
   render() {
+    const { place, loss, text, author } = this.state;
+
     return (
       <View style={styles.block}>
         <ScrollView>
@@ -87,6 +98,7 @@ export default class Home extends Component {
               <TextInput
                 placeholder="请输入发现人"
                 onChange={this.handlePersonInput}
+                value={author}
               />
             </View>
             <View style={styles.inputContainer}>
@@ -94,6 +106,7 @@ export default class Home extends Component {
               <TextInput
                 placeholder="请输入发现部位"
                 onChange={this.handlePlaceInput}
+                value={place}
               />
             </View>
             <View style={{ marginTop: 10 }}>
@@ -108,6 +121,7 @@ export default class Home extends Component {
                 <TextInput
                   placeholder="请输入描述内容"
                   onChange={this.handleIntroInput}
+                  value={text}
                 />
               </View>
             </View>
@@ -123,6 +137,7 @@ export default class Home extends Component {
                 <TextInput
                   placeholder="请输入损失情况"
                   onChange={this.handleLossInput}
+                  value={loss}
                 />
               </View>
             </View>
