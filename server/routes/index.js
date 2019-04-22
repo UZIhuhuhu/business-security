@@ -25,7 +25,7 @@ router.get('/history:id', async ctx => {
 router.post('/create', bodyParser, async ctx => {
   const {
     text,
-    dataModel,
+    place,
     programmingCode,
     loss,
     author,
@@ -33,7 +33,7 @@ router.post('/create', bodyParser, async ctx => {
   } = ctx.request.body;
   const check = await models.History.create({
     text,
-    dataModel,
+    place,
     programmingCode,
     loss,
     author,
